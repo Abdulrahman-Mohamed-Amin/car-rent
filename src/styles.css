@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: "Noto Sans", sans-serif;
+    box-sizing: border-box;
+}
+.vector{
+    z-index: -1;
+}
+.title{
+    background: #e8f1fb;
+    color: #1572d3;    
+    text-transform: uppercase;
+    padding: 7px 25px;
+    border-radius: 5px;
+    margin: auto;
+    width: fit-content;
+    cursor: pointer;
+}
+.sec{
+    padding: 80px 0;
+    margin-bottom: 80px;
+}
+.head{
+    margin-bottom: 30px;
+}

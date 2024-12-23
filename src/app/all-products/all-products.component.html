@@ -1,0 +1,138 @@
+<div class="container position-relative mb-3 pt-5">
+    <div class="link">
+        <a [routerLink]="['/home']"  class="me-1 btn btn-outline-primary">Home</a> /
+        <span class="ms-1">Core</span>
+    </div>
+    <div class="title mt-4">POPULAR RENTAL DEALS</div>
+    <h2 class="text-center mt-3">Most popular cars rental deals</h2>
+
+    <div class="input-group mb-3 shadow mt-4">
+        <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-location-dot"></i>
+        </span>
+        <input type="text" class="form-control p-2" placeholder="Search by Name" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="searchTerm" (input)="search()">
+        <button class="btn btn-primary" (click)="search()">Search</button>
+      </div>
+
+      <ng-container *ngIf="show">
+        <div class="row gy-3 mt-5 p-0">
+
+            <div class="col-lg-3 col-md-6 col-12" *ngFor="let car of cars | paginate:{itemsPerPage:12 , currentPage:page}">
+                <div class="box shadow rounded-2 px-3 py-4">
+                    <div class="img_cont text-center mb-2">
+                        <img src="assets/imges/card/car3.png" class="img-fluid">
+                    </div>
+                    <h6 class="my-2">{{car.car}} {{car.car_model}}</h6>
+                    <div class="reveiw d-flex gap-2">
+                        <img src="assets/imges/card/star.png" alt="">
+                        <strong>4.5</strong>
+                        <span class="text-secondary">( 2.400 reveiws)</span>
+                    </div>
+    
+                    <div class="featurs row mt-3 gy-3 ">
+                        <div class="col-6 col-md-4">
+                            <div class="feat">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span class="text-secondary">{{car.car_model_year}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <div class="feat">
+                                <i class="fa-solid fa-barcode"></i>
+                                <span class="text-secondary">{{car.car_vin}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="feat">
+                                <i class="fa-solid fa-paint-roller"></i>
+                                <span class="text-secondary">{{car.car_color}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <div class="feat">
+                                <img src="assets/imges/card/d8wxke_2_.png" alt="">
+                                <span class="text-secondary">Air Condition</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="price d-flex justify-content-between align-items-center">
+                        <span class="text-secondary">Price</span>
+                        <p class="m-0"><strong>{{car.price}}</strong><span class="text-secondary">/day</span></p>
+                    </div>
+    
+                    <button class="btn btn-primary w-100 mt-3" [routerLink]="['/product_details' , car.id]" >Rent Now <img src="../../assets/imges/card/arrow-right.png" alt=""></button>
+                </div>
+            </div>
+    
+        </div>
+    
+        <div class="d-flex justify-content-center align-items-center paginat">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!show">
+        <div class="row gy-3 mt-5 p-0">
+
+            <div class="col-lg-3 col-md-6 col-12" *ngFor="let car of cars2 | paginate:{itemsPerPage:12 , currentPage:page}">
+                <div class="box shadow rounded-2 px-3 py-4">
+                    <div class="img_cont text-center mb-2">
+                        <img src="assets/imges/card/car3.png" class="img-fluid">
+                    </div>
+                    <h6 class="my-2">{{car.car}} {{car.car_model}}</h6>
+                    <div class="reveiw d-flex gap-2">
+                        <img src="assets/imges/card/star.png" alt="">
+                        <strong>4.5</strong>
+                        <span class="text-secondary">( 2.400 reveiws)</span>
+                    </div>
+    
+                    <div class="featurs row mt-3 gy-3 ">
+                        <div class="col-6 col-md-4">
+                            <div class="feat">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span class="text-secondary">{{car.car_model_year}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <div class="feat">
+                                <i class="fa-solid fa-barcode"></i>
+                                <span class="text-secondary">{{car.car_vin}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="feat">
+                                <i class="fa-solid fa-paint-roller"></i>
+                                <span class="text-secondary">{{car.car_color}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <div class="feat">
+                                <img src="assets/imges/card/d8wxke_2_.png" alt="">
+                                <span class="text-secondary">Air Condition</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="price d-flex justify-content-between align-items-center">
+                        <span class="text-secondary">Price</span>
+                        <p class="m-0"><strong>{{car.price}}</strong><span class="text-secondary">/day</span></p>
+                    </div>
+    
+  
+                    <button class="btn btn-primary w-100 mt-3" [routerLink]="['/product_details' , car.id]" >Rent Now <img src="../../assets/imges/card/arrow-right.png" alt=""></button>
+                </div>
+            </div>
+    
+        </div>
+    
+        <div class="alert fw-bold fs-4 text-center text-danger" *ngIf="!cars2.length">
+            This Car Is not Found
+        </div>
+        <div class="d-flex justify-content-center align-items-center paginat">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </ng-container>
+    
+
+</div>

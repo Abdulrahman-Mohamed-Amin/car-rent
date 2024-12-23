@@ -1,0 +1,37 @@
+.link{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+h6{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginat{
+    margin-top: 50px;
+}
+.reveiw{
+    align-items: center;
+    font-size: 14px;
+}
+.feat{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.feat i{
+    color: #BCBCBC;
+}
+.featurs span{
+    font-size: 12px;
+}
+.featurs{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.price span{
+    font-size: 15px;
+}

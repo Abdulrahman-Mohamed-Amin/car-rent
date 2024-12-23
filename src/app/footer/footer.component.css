@@ -1,0 +1,23 @@
+.cont{
+    background: #051C34;
+    padding: 40px 0;
+    color: #fff;
+}
+.row{
+    border-bottom: 1px solid #24384D;
+    padding-bottom: 50px;
+}
+.cont .item{
+    margin-bottom: 20px;
+}
+.cont .item p{
+    font-size: 13px;
+    align-items: center;
+    margin: 0;
+}
+.cont span{
+    display: block;
+    font-size: 13px;
+    margin-bottom: 3px;
+    text-transform: capitalize;
+}

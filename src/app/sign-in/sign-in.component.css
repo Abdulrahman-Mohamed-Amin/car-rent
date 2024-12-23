@@ -1,0 +1,61 @@
+
+.link{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.img_cont , .info{
+    width: 45%;
+}
+form{
+    background: #E5EFFA;
+    width: 450px;
+}
+input{
+    background: #CEE3F7;
+    
+}
+.form-control:focus{
+    background: #CEE3F7;
+}
+.vector{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    
+}
+.car{
+    animation: car 1s linear;
+    transform-origin: left;
+
+}
+
+@keyframes car{
+    0%
+    {
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+} 
+@media(max-width:991px){
+    .vector{
+        display: none;
+    }
+    .info{
+        width: 100%;
+        margin: 0 20px;
+    }
+    .cont{
+    }
+    form{
+        margin: auto;
+    }
+}
+@media(max-width:578px){
+    form{
+        width: 100%;
+    }
+}

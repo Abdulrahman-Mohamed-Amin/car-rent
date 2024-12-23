@@ -1,0 +1,38 @@
+<div class="position-relative d-flex justify-content-between align-items-center vh-100 cont">
+    <div class="link">
+        <a [routerLink]="['/home']"  class="me-1 btn btn-outline-primary">Home</a> /
+        <span class="ms-1">Core</span>
+    </div>
+    <img src="assets/imges/landing-page/sec-5/Vector.png" class="vector" width="600">
+    <div class="img_cont d-lg-block d-none">
+        <img src="assets/imges/landing-page/sec-5/Audi 1.png" alt="" class="w-100 car">
+    </div>
+    <div class="info">
+        <form class="p-3 shadow-sm rounded-1" [formGroup]="signIn" (ngSubmit)="SignInInfor(signIn)">
+            <img src="assets/imges/nav/logo.png" alt="logg" class="mt-2">
+            <h5 class="text-primary my-4 text-center">Sign in</h5>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
+                <label for="email">Email address</label>
+              </div>
+              <div class="err" *ngIf="signIn.get('email')?.errors && signIn.get('email')?.touched">
+                <p class="text-danger fw-bold" *ngIf="signIn.get('email')?.getError('required')">Email is Required</p>
+                <p class="text-danger fw-bold" *ngIf="signIn.get('email')?.getError('email')">Invalid Email</p>
+              </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" placeholder="" formControlName="password">
+                <label for="password">Password</label>
+              </div>
+
+              <div class="err" *ngIf="signIn.get('password')?.errors && signIn.get('password')?.touched">
+                <p class="text-danger fw-bold" *ngIf="signIn.get('password')?.getError('required')">Password is Required</p>
+                <p class="text-danger fw-bold" *ngIf="signIn.get('password')?.getError('maxlength')">Maximum length 8 Characte</p>
+              </div>
+
+              <button class="btn btn-primary my-4 mx-auto d-block">Sign in</button>
+              <span class="d-block text-center my-3">I don't have an account ? <a routerLink="/sign_up" class="">Sign in</a>
+              </span>
+        </form>
+    </div>
+</div>

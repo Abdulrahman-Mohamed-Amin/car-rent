@@ -1,0 +1,54 @@
+<div class="position-relative d-flex justify-content-between align-items-center vh-100">
+    <div class="link">
+        <a [routerLink]="['/home']"  class="me-1 btn btn-outline-primary">Home</a> /
+        <span class="ms-1">Core</span>
+    </div>
+    <img src="assets/imges/landing-page/sec-5/Vector.png" class="vector" width="600">
+    <div class="img_cont d-lg-block d-none">
+        <img src="assets/imges/landing-page/sec-5/Audi 1.png" alt="" class="w-100 car">
+    </div>
+    <div class="info d-flex justify-content-center">
+        <form class="p-3 shadow-sm rounded-1" [formGroup]="signUp" (ngSubmit)="signUpInfor(signUp)">
+            <img src="assets/imges/nav/logo.png" alt="logg" class="mt-2">
+            <h5 class="text-primary my-4 text-center">Sign up</h5>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" placeholder="" formControlName="userName">
+                <label for="name">Name</label>
+              </div>
+              <div class="err" *ngIf="signUp.get('userName')?.errors && signUp.get('userName')?.touched">
+                <p class="text-danger fw-bold" *ngIf="signUp.get('userName')?.getError('required')">User name is Required</p>
+                <p class="text-danger fw-bold" *ngIf="signUp.get('userName')?.getError('minlength')">Minimum length 4 Character</p>
+              </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
+                <label for="email">Email address</label>
+              </div>
+              <div class="err" *ngIf="signUp.get('email')?.errors && signUp.get('email')?.touched">
+                <p class="text-danger fw-bold" *ngIf="signUp.get('email')?.getError('required')">Email is Required</p>
+                <p class="text-danger fw-bold" *ngIf="signUp.get('email')?.getError('email')">Invalid Email</p>
+              </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" placeholder="" formControlName="password">
+                <label for="password">Password</label>
+              </div>
+
+              <div class="err" *ngIf="signUp.get('password')?.errors && signUp.get('password')?.touched">
+                <p class="text-danger fw-bold" *ngIf="signUp.get('password')?.getError('required')">Password is Required</p>
+                <p class="text-danger fw-bold" *ngIf="signUp.get('password')?.getError('maxlength')">Maximum length 8 Characte</p>
+              </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="mobil" placeholder="" formControlName="mobil">
+                <label for="mobil">Mobil</label>
+              </div>
+              
+              <div class="err" *ngIf="signUp.get('mobil')?.errors && signUp.get('mobil')?.touched">
+                <p class="text-danger fw-bold" *ngIf="signUp.get('mobil')?.getError('required')">mobil is Required</p>
+                <p class="text-danger fw-bold" *ngIf="signUp.get('mobil')?.getError('minlength')">Minimum length 11 Characte</p>
+              </div>
+              <button class="btn btn-primary my-4 mx-auto d-block">Sign up</button>
+              <span class="d-block text-center my-3">Already Have Account ? <a routerLink="/sign_in" class="">Login</a>
+              </span>
+        </form>
+    </div>
+</div>
